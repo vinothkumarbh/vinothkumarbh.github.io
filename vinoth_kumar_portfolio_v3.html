@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinoth Kumar Bhojan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F9F7F3;
+  --white:#FFFFFF;
+  --ink:#18181A;
+  --muted:#6B6860;
+  --accent:#1C3F6E;
+  --accent-light:#EBF0F7;
+  --gold:#B08A4E;
+  --line:#E4E0D8;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.75}
+nav{position:fixed;top:0;left:0;right:0;background:rgba(249,247,243,0.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:100;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:58px}
+.nav-name{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink)}
+.nav-links{display:flex;gap:1.75rem}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:12px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+#hero{padding:130px 2rem 5rem;max-width:900px;margin:0 auto;border-bottom:1px solid var(--line)}
+.badge{display:inline-block;background:var(--accent-light);color:var(--accent);font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:1.5rem}
+h1{font-family:'Playfair Display',serif;font-size:clamp(38px,7vw,62px);line-height:1.08;font-weight:400;margin-bottom:1.25rem}
+.hero-sub{font-size:16px;color:var(--muted);max-width:560px;line-height:1.85;margin-bottom:2rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.5rem}
+.hero-tag{border:1px solid var(--line);color:var(--muted);font-size:12px;padding:4px 12px;border-radius:2px}
+.hero-cta{display:inline-block;padding:0.65rem 1.75rem;background:var(--accent);color:#fff;text-decoration:none;font-size:13px;font-weight:500;border-radius:3px;transition:opacity 0.2s;margin-right:1rem}
+.hero-cta:hover{opacity:0.85}
+.hero-cta.outline{background:transparent;border:1px solid var(--accent);color:var(--accent)}
+.hero-cta.outline:hover{background:var(--accent-light)}
+section{padding:5rem 2rem;max-width:900px;margin:0 auto}
+hr.div{border:none;border-top:1px solid var(--line);margin:0 2rem}
+h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:400;margin-bottom:2.25rem}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);font-weight:500;margin-bottom:0.5rem}
+.about-lead{font-size:16px;color:var(--muted);line-height:1.9;max-width:660px;margin-bottom:2rem}
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:1.25rem 1.5rem}
+.card-label{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.35rem;font-weight:500}
+.card-val{font-size:14px;color:var(--ink);line-height:1.6}
+.ambition-card{background:var(--accent);border-radius:8px;padding:2rem;margin-bottom:2rem;display:flex;gap:1.5rem;align-items:flex-start}
+.ambition-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+.ambition-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:#fff;margin-bottom:0.4rem}
+.ambition-desc{font-size:14px;color:rgba(255,255,255,0.78);line-height:1.75}
+.ambition-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.9rem}
+.ambition-tag{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.9);font-size:11.5px;padding:3px 10px;border-radius:2px;border:1px solid rgba(255,255,255,0.2)}
+.timeline{display:flex;flex-direction:column}
+.tl-item{display:grid;grid-template-columns:120px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--line)}
+.tl-item:last-child{border-bottom:none}
+.tl-date{font-size:12px;color:var(--muted);padding-top:3px;line-height:1.6}
+.tl-role{font-size:15px;font-weight:500;margin-bottom:2px}
+.tl-org{font-size:13px;color:var(--accent);margin-bottom:0.4rem}
+.tl-loc{font-size:12px;color:var(--muted);margin-bottom:0.75rem}
+.tl-desc{font-size:13.5px;color:var(--muted);line-height:1.75}
+.tl-desc li{margin-bottom:4px;list-style:none;padding-left:1rem;position:relative}
+.tl-desc li::before{content:"–";position:absolute;left:0;color:var(--gold)}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+.skill-group{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:1.25rem 1.5rem}
+.sg-title{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.9rem;font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{background:var(--bg);border:1px solid var(--line);color:var(--ink);font-size:12px;padding:3px 10px;border-radius:2px}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
+.edu-card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:1.5rem}
+.edu-card.highlight{border-left:3px solid var(--gold)}
+.edu-degree{font-size:15px;font-weight:500;margin-bottom:4px}
+.edu-school{font-size:13px;color:var(--accent);margin-bottom:4px}
+.edu-year{font-size:12px;color:var(--muted)}
+.edu-badge{display:inline-block;background:#FFF7EC;color:var(--gold);font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:2px 8px;border-radius:2px;margin-top:6px;border:1px solid #F0DDB5}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.proj-card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:1.5rem;border-left:3px solid var(--gold)}
+.proj-title{font-size:14.5px;font-weight:500;margin-bottom:4px}
+.proj-sub{font-size:12px;color:var(--muted);margin-bottom:8px}
+.proj-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.lang-row{display:flex;flex-direction:column;gap:0.75rem;max-width:400px}
+.lang-item{display:flex;align-items:center;gap:1rem}
+.lang-name{font-size:13.5px;font-weight:500;min-width:80px}
+.lang-bar{flex:1;height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.lang-fill{height:100%;background:var(--accent);border-radius:2px}
+.lang-level{font-size:12px;color:var(--muted);min-width:70px;text-align:right}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.contact-card{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:1.25rem 1.5rem}
+.contact-label{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin-bottom:0.35rem;font-weight:500}
+.contact-val{font-size:14px;color:var(--ink);text-decoration:none;display:block}
+a.contact-val:hover{color:var(--accent)}
+footer{text-align:center;padding:2rem;font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Vinoth Kumar Bhojan</span>
+  <div class="nav-links">
+    <a href="#about">Profil</a>
+    <a href="#ambition">Objectif</a>
+    <a href="#experience">Expérience</a>
+    <a href="#skills">Compétences</a>
+    <a href="#education">Formation</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div id="hero">
+  <div class="badge">Consultant en Immigration · Juriste · Futur Détective Privé</div>
+  <h1>Vinoth Kumar<br>Bhojan</h1>
+  <p class="hero-sub">Professionnel juridique et consultant indépendant en immigration, titulaire d'un LLB et d'un MBA, avec une expérience internationale en France, en Inde et en Pologne. Actuellement inscrit au DCG et orienté vers la détection des crimes financiers.</p>
+  <div class="hero-tags">
+    <span class="hero-tag">Droit de l'immigration</span>
+    <span class="hero-tag">Crimes financiers</span>
+    <span class="hero-tag">DCG en cours</span>
+    <span class="hero-tag">Enquête privée</span>
+    <span class="hero-tag">Trilingue</span>
+  </div>
+  <a href="#contact" class="hero-cta">Me contacter</a>
+  <a href="#ambition" class="hero-cta outline">Mon objectif</a>
+</div>
+
+<section id="about">
+  <div class="section-label">Profil</div>
+  <h2>À propos</h2>
+  <p class="about-lead">Professionnel rigoureux et polyvalent, doté d'une solide formation juridique et d'une expérience professionnelle internationale. Je combine expertise légale, sens de l'analyse et capacité à traiter de grands volumes d'information — des atouts essentiels pour l'investigation financière et la détection de fraudes.</p>
+  <div class="cards2">
+    <div class="card">
+      <div class="card-label">Localisation</div>
+      <div class="card-val">Saint-Cyr-l'École 78210, France</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Langues</div>
+      <div class="card-val">Anglais (courant) · Français (intermédiaire) · Allemand (notions)</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Inscriptions au Barreau</div>
+      <div class="card-val">SRA (Royaume-Uni) · Barreau de Paris — Article 100 avocats étrangers</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Centres d'intérêt</div>
+      <div class="card-val">Natation · Cricket · Football · Apprentissage des langues</div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="ambition">
+  <div class="section-label">Objectif professionnel</div>
+  <h2>Aspiration</h2>
+  <div class="ambition-card">
+    <div class="ambition-icon">🔍</div>
+    <div>
+      <div class="ambition-title">Détective Privé spécialisé en crimes financiers</div>
+      <div class="ambition-desc">Mon objectif est de devenir détective privé agréé en France, avec une spécialisation dans l'investigation des crimes financiers : fraude, blanchiment d'argent, détournements et malversations. Ma formation juridique (LLB, DCG) combinée à mon expérience en immigration et en gestion comptable me place idéalement pour exercer dans ce domaine exigeant.</div>
+      <div class="ambition-tags">
+        <span class="ambition-tag">Fraude financière</span>
+        <span class="ambition-tag">Blanchiment d'argent</span>
+        <span class="ambition-tag">Investigation privée</span>
+        <span class="ambition-tag">Conformité légale</span>
+        <span class="ambition-tag">Analyse de documents</span>
+        <span class="ambition-tag">Droit pénal des affaires</span>
+      </div>
+    </div>
+  </div>
+  <div class="cards2">
+    <div class="card">
+      <div class="card-label">Cadre légal visé</div>
+      <div class="card-val">Agrément CNAPS (Conseil National des Activités Privées de Sécurité) — exigé pour exercer en France</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Atouts clés</div>
+      <div class="card-val">Formation juridique · Analyse financière (DCG) · Expérience internationale · Maîtrise de plusieurs langues</div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="experience">
+  <div class="section-label">Parcours</div>
+  <h2>Expérience professionnelle</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">Avr 2021 –<br>Nov 2021</div>
+      <div>
+        <div class="tl-role">Consultant Indépendant en Immigration</div>
+        <div class="tl-org">Adva Groupe</div>
+        <div class="tl-loc">Paris, France</div>
+        <ul class="tl-desc">
+          <li>Conseil juridique sur l'immigration vers et depuis la France</li>
+          <li>Préparation de dossiers : visas étudiants, regroupement familial, demandes d'asile, titres de séjour</li>
+          <li>Conseil aux ressortissants étrangers sur les permis de résidence et de travail</li>
+          <li>Rédaction de lettres de visa et formulaires de demande</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Juin 2019 –<br>Nov 2021</div>
+      <div>
+        <div class="tl-role">Caissier</div>
+        <div class="tl-org">AUCHAN Vélizy</div>
+        <div class="tl-loc">Vélizy, France</div>
+        <ul class="tl-desc">
+          <li>Gestion autonome d'une caisse, dernier point de vente</li>
+          <li>Service client, gestion des espèces et des produits</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Fév 2018 –<br>Mai 2019</div>
+      <div>
+        <div class="tl-role">Assistant Commercial</div>
+        <div class="tl-org">Sarl Sahasra</div>
+        <div class="tl-loc">Paris, France</div>
+        <ul class="tl-desc">
+          <li>Gestion globale d'un magasin de téléphonie mobile et accessoires</li>
+          <li>Suivi des stocks, des flux financiers et marketing général</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Juin 2017 –<br>Juil 2017</div>
+      <div>
+        <div class="tl-role">Stage — Équipe de numérisation</div>
+        <div class="tl-org">DXC Technology</div>
+        <div class="tl-loc">Wrocław, Pologne</div>
+        <ul class="tl-desc">
+          <li>Traitement de documents entrants et sortants pour un grand prestataire multinational</li>
+          <li>Gestion de la distribution de fichiers et saisie de données</li>
+          <li>Respect des accords de niveau de service (SLA)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Août 2014 –<br>Fév 2015</div>
+      <div>
+        <div class="tl-role">Analyste Knowledge Senior</div>
+        <div class="tl-org">Mphasis Ltd</div>
+        <div class="tl-loc">Bangalore, Inde</div>
+        <ul class="tl-desc">
+          <li>Gestion et numérisation de documents sensibles pour le projet JP Morgan & Chase (gestion de patrimoine mondial)</li>
+          <li>Contrôle qualité des images et traitement par lots</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="skills">
+  <div class="section-label">Capacités</div>
+  <h2>Compétences</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="sg-title">Juridique & Immigration</div>
+      <div class="tags">
+        <span class="tag">Droit de l'immigration</span>
+        <span class="tag">Visas & titres de séjour</span>
+        <span class="tag">Droit des étrangers</span>
+        <span class="tag">Rédaction juridique</span>
+        <span class="tag">Demandes d'asile</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Financier & Comptable</div>
+      <div class="tags">
+        <span class="tag">DCG (en cours)</span>
+        <span class="tag">Analyse financière</span>
+        <span class="tag">Gestion de trésorerie</span>
+        <span class="tag">Comptabilité</span>
+        <span class="tag">Détection de fraudes</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title">Transversal</div>
+      <div class="tags">
+        <span class="tag">Communication</span>
+        <span class="tag">Résolution de problèmes</span>
+        <span class="tag">Travail en équipe</span>
+        <span class="tag">Autonomie</span>
+        <span class="tag">Organisation</span>
+        <span class="tag">Initiative</span>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:2rem">
+    <div class="section-label" style="margin-bottom:1rem">Langues</div>
+    <div class="lang-row">
+      <div class="lang-item">
+        <span class="lang-name">Anglais</span>
+        <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+        <span class="lang-level">Courant</span>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">Français</span>
+        <div class="lang-bar"><div class="lang-fill" style="width:55%"></div></div>
+        <span class="lang-level">Intermédiaire</span>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">Allemand</span>
+        <div class="lang-bar"><div class="lang-fill" style="width:15%"></div></div>
+        <span class="lang-level">Notions</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="education">
+  <div class="section-label">Formation académique</div>
+  <h2>Diplômes & Certifications</h2>
+  <div class="edu-grid">
+    <div class="edu-card highlight">
+      <div class="edu-degree">DCG — Diplôme de Comptabilité et de Gestion</div>
+      <div class="edu-school">En cours d'inscription</div>
+      <div class="edu-year">France</div>
+      <div class="edu-badge">Inscrit · En cours</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Licence en Droit (LLB)</div>
+      <div class="edu-school">Université de Bangalore</div>
+      <div class="edu-year">2008 – 2011 · Bangalore, Inde</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">MBA — Finance</div>
+      <div class="edu-school">Université d'Annamalai</div>
+      <div class="edu-year">2005 – 2007 · Chidambaram, Inde</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">DELF — Niveau B intermédiaire</div>
+      <div class="edu-school">Certificat de langue française</div>
+      <div class="edu-year">2017 – 2021</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">CAP MVTR (en cours)</div>
+      <div class="edu-school">AFTRAL</div>
+      <div class="edu-year">Mars 2025 – en cours · France</div>
+    </div>
+  </div>
+  <div class="section-label" style="margin-bottom:1rem">Inscriptions au Barreau</div>
+  <div class="projects-grid">
+    <div class="proj-card">
+      <div class="proj-title">Solicitors Registration Authority (SRA)</div>
+      <div class="proj-sub">Royaume-Uni · Nov 2023 – Nov 2024</div>
+      <div class="proj-desc">Inscription au barreau sous la voie QLTS pour avocats étrangers qualifiés.</div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-title">Inscription au Barreau de Paris</div>
+      <div class="proj-sub">France · Nov 2023 – Nov 2024</div>
+      <div class="proj-desc">Inscription sous l'Article 100 pour avocats étrangers exerçant en France.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="div">
+
+<section id="contact">
+  <div class="section-label">Me joindre</div>
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-label">Email</div>
+      <a href="mailto:vinothkumar.bh@outlook.com" class="contact-val">vinothkumar.bh@outlook.com</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-label">Téléphone</div>
+      <a href="tel:+33783777523" class="contact-val">07 83 77 75 23</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-label">Adresse</div>
+      <span class="contact-val">Saint-Cyr-l'École 78210, France</span>
+    </div>
+    <div class="contact-card">
+      <div class="contact-label">Skype</div>
+      <span class="contact-val">live:vinothkumar.bh</span>
+    </div>
+  </div>
+</section>
+
+<footer>&copy; 2025 Vinoth Kumar Bhojan &nbsp;·&nbsp; Tous droits réservés</footer>
+
+</body>
+</html>
